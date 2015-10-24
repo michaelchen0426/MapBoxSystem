@@ -25,7 +25,9 @@
 		0438ABC01BD90A0A007F9EA9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0438ABBF1BD90A0A007F9EA9 /* MBProgressHUD.m */; };
 		04BE56D51BDA226A0007EA61 /* HistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE56D31BDA226A0007EA61 /* HistoryTableViewCell.m */; };
 		04BE56D61BDA226A0007EA61 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56D41BDA226A0007EA61 /* HistoryTableViewCell.xib */; };
-		04BE56DB1BDA623E0007EA61 /* InputAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE56DA1BDA623E0007EA61 /* InputAddressTableViewController.m */; };
+		04BE56DE1BDB4EF70007EA61 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE56DD1BDB4EF70007EA61 /* HistoryTableViewController.m */; };
+		04BE56E31BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE56E11BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m */; };
+		04BE56E41BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56E21BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib */; };
 		451FF9FA7BA74E37ED5E5B0A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +64,11 @@
 		04BE56D21BDA226A0007EA61 /* HistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewCell.h; sourceTree = "<group>"; };
 		04BE56D31BDA226A0007EA61 /* HistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewCell.m; sourceTree = "<group>"; };
 		04BE56D41BDA226A0007EA61 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
-		04BE56D91BDA623E0007EA61 /* InputAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputAddressTableViewController.h; sourceTree = "<group>"; };
-		04BE56DA1BDA623E0007EA61 /* InputAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputAddressTableViewController.m; sourceTree = "<group>"; };
+		04BE56DC1BDB4EF70007EA61 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = "<group>"; };
+		04BE56DD1BDB4EF70007EA61 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = "<group>"; };
+		04BE56E01BDB53EE0007EA61 /* SingleHistoryTabelViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleHistoryTabelViewCell.h; sourceTree = "<group>"; };
+		04BE56E11BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleHistoryTabelViewCell.m; sourceTree = "<group>"; };
+		04BE56E21BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHistoryTabelViewCell.xib; sourceTree = "<group>"; };
 		5D0994BC88B36CFC5BF300BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D0FC9DBC2BC4A3E480F22C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -111,13 +116,11 @@
 				041D016A1BD4DAF300847FD3 /* ViewController.m */,
 				041D017F1BD4EB8B00847FD3 /* SearchViewController.h */,
 				041D01801BD4EB8B00847FD3 /* SearchViewController.m */,
-				04BE56D21BDA226A0007EA61 /* HistoryTableViewCell.h */,
-				04BE56D31BDA226A0007EA61 /* HistoryTableViewCell.m */,
-				04BE56D41BDA226A0007EA61 /* HistoryTableViewCell.xib */,
 				041D01911BD739A500847FD3 /* InputAddressViewController.h */,
 				041D01921BD739A500847FD3 /* InputAddressViewController.m */,
 				041D01851BD4EBEA00847FD3 /* DirectionMainViewController.h */,
 				041D01861BD4EBEA00847FD3 /* DirectionMainViewController.m */,
+				04BE56DF1BDB53BC0007EA61 /* CellsSet */,
 				04BE56D81BDA62030007EA61 /* ContainerCollection */,
 				041D01881BD4EC1400847FD3 /* DetailsViewController.h */,
 				041D01891BD4EC1400847FD3 /* DetailsViewController.m */,
@@ -157,10 +160,23 @@
 				041D018C1BD4EC3800847FD3 /* ContainerViewController.m */,
 				041D018E1BD4EC6100847FD3 /* DetailsContainerVC.h */,
 				041D018F1BD4EC6100847FD3 /* DetailsContainerVC.m */,
-				04BE56D91BDA623E0007EA61 /* InputAddressTableViewController.h */,
-				04BE56DA1BDA623E0007EA61 /* InputAddressTableViewController.m */,
+				04BE56DC1BDB4EF70007EA61 /* HistoryTableViewController.h */,
+				04BE56DD1BDB4EF70007EA61 /* HistoryTableViewController.m */,
 			);
 			name = ContainerCollection;
+			sourceTree = "<group>";
+		};
+		04BE56DF1BDB53BC0007EA61 /* CellsSet */ = {
+			isa = PBXGroup;
+			children = (
+				04BE56D21BDA226A0007EA61 /* HistoryTableViewCell.h */,
+				04BE56D31BDA226A0007EA61 /* HistoryTableViewCell.m */,
+				04BE56D41BDA226A0007EA61 /* HistoryTableViewCell.xib */,
+				04BE56E01BDB53EE0007EA61 /* SingleHistoryTabelViewCell.h */,
+				04BE56E11BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m */,
+				04BE56E21BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib */,
+			);
+			name = CellsSet;
 			sourceTree = "<group>";
 		};
 		CF522FE58C58734817AF9DD3 /* Frameworks */ = {
@@ -245,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BE56E41BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib in Resources */,
 				041D017B1BD4DDB000847FD3 /* Settings.bundle in Resources */,
 				04BE56D61BDA226A0007EA61 /* HistoryTableViewCell.xib in Resources */,
 				041D01731BD4DAF300847FD3 /* LaunchScreen.storyboard in Resources */,
@@ -310,12 +327,13 @@
 			files = (
 				041D016B1BD4DAF300847FD3 /* ViewController.m in Sources */,
 				041D01841BD4EBB200847FD3 /* GCGeocodingService.m in Sources */,
+				04BE56DE1BDB4EF70007EA61 /* HistoryTableViewController.m in Sources */,
 				041D018D1BD4EC3800847FD3 /* ContainerViewController.m in Sources */,
+				04BE56E31BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m in Sources */,
 				041D01681BD4DAF300847FD3 /* AppDelegate.m in Sources */,
 				041D01871BD4EBEA00847FD3 /* DirectionMainViewController.m in Sources */,
 				041D01811BD4EB8B00847FD3 /* SearchViewController.m in Sources */,
 				041D017E1BD4DF5F00847FD3 /* MDDirectionService.m in Sources */,
-				04BE56DB1BDA623E0007EA61 /* InputAddressTableViewController.m in Sources */,
 				0438ABC01BD90A0A007F9EA9 /* MBProgressHUD.m in Sources */,
 				041D01901BD4EC6100847FD3 /* DetailsContainerVC.m in Sources */,
 				041D01651BD4DAF200847FD3 /* main.m in Sources */,

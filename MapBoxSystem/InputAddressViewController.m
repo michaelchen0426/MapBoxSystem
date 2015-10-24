@@ -10,7 +10,7 @@
 #import "SearchViewController.h"
 @import GoogleMaps;
 @interface InputAddressViewController ()
-
+@property (nonatomic, weak) HistoryTableViewController *historyTableViewController;
 @end
 
 @implementation InputAddressViewController{
@@ -21,7 +21,7 @@
 }
 @synthesize addressField;
 @synthesize autocompleteTableView;
-@synthesize historyTableView;
+
 @synthesize start_text;
 @synthesize end_text;
 @synthesize is_Start;
@@ -32,10 +32,11 @@
     }else if(end_text.length>0&&!is_Start){
         addressField.text=end_text;
     }
+    /*
     id desiredColor = [UIColor lightGrayColor];
     self.historyTableView.backgroundColor = desiredColor;
     self.historyTableView.backgroundView.backgroundColor = desiredColor;
-    
+    */
     addressField.delegate=self;
     autocompleteTableView.delegate = self;
     autocompleteTableView.dataSource = self;
@@ -147,6 +148,12 @@
     [addressField resignFirstResponder];
     
 }
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    return YES;
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"SearchSegue"]){
@@ -168,7 +175,15 @@
         directions.start_text=start_text;
         directions.end_text=addressField.text;
         
+    }else if ([segue.identifier isEqualToString:@"embedContainer"]) {
+        NSLog(@"embedContainer segure execute");
+        self.historyTableViewController = segue.destinationViewController;
+        self.historyTableViewController.isStart=self.is_Start;
+        [self.historyTableViewController setDelegate:self];
     }
+}
+- (void)passHistoryInfo:(NSString *)selectedText{
+    addressField.text=selectedText;
 }
 /*
 #pragma mark - Navigation

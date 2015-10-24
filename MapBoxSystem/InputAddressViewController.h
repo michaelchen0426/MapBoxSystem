@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface InputAddressViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>{
+#import "HistoryTableViewController.h"
+@interface InputAddressViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate,HistoryTableViewControllerDelegate>{
     NSMutableArray *places_collection;
 }
 @property (weak, nonatomic) IBOutlet UITextField *addressField;
 @property (weak, nonatomic) IBOutlet UITableView *autocompleteTableView;
-@property (weak, nonatomic) IBOutlet UITableView *historyTableView;
+
 @property (strong,nonatomic) NSString *start_text;
 @property (strong,nonatomic) NSString *end_text;
 @property (assign,nonatomic) Boolean is_Start;

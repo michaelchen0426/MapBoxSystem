@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Mapbox-iOS-SDK-Mapbox.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Mapbox-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SVProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>11DBEF07C56DE4DF52DFBF7618A78102</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A31CEA90D258DAA1C52CF9B1139C66D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9BEE20240EAF48A2490E7B415209456B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0ECC3BD18CAEBE408E9023D3847041A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

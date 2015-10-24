@@ -1,0 +1,16 @@
+PODS:
+  - GoogleMaps (1.10.4)
+  - Mapbox-iOS-SDK (2.1.2)
+  - SVProgressHUD (HEAD based on 1.1.3)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - Mapbox-iOS-SDK
+  - SVProgressHUD (HEAD)
+
+SPEC CHECKSUMS:
+  GoogleMaps: 134bcf57e8d489efbc0c29d532ed421554fabdb2
+  Mapbox-iOS-SDK: f8a8fd3ccf918196d27a52ab1694414be20f2210
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+
+COCOAPODS: 0.39.0

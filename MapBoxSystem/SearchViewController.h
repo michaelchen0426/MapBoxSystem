@@ -11,6 +11,7 @@
 #import "GCGeocodingService.h"
 #import "DirectionMainViewController.h"
 #import "HistoryTableViewCell.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 @interface SearchViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong,nonatomic) GCGeocodingService *gs_start;
 @property (strong,nonatomic) GCGeocodingService *gs_end;
@@ -19,4 +20,10 @@
 -(void)Search;
 -(IBAction)touchStart:(id)sender;
 -(IBAction)touchEnd:(id)sender;
+- (void)setDirectionsQuery:(NSDictionary *)object withSelector:(SEL)selector
+              withDelegate:(id)delegate;
+- (void)retrieveDirections:(SEL)sel withDelegate:(id)delegate;
+- (void)fetchedData:(NSData *)data withSelector:(SEL)selector
+       withDelegate:(id)delegate;
+- (void)callWebAPI;
 @end

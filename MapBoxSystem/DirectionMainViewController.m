@@ -26,7 +26,6 @@
     NSString *overview_route;
     NSMutableArray *route_points;
     NSInteger bad_traffic_num;
-    MBProgressHUD *HUD;
     BOOL _sensor;
     BOOL _alternatives;
     NSURL *_directionsURL;
@@ -35,6 +34,7 @@
 
 @synthesize position_start;
 @synthesize position_end;
+@synthesize wholeJson;
 static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
 
 - (void)viewDidLoad {
@@ -129,24 +129,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
     [waypoints_ addObject:start_marker];
     [waypoints_ addObject:end_marker];
 
-    NSString *positionString_start = [[NSString alloc] initWithFormat:@"lon_s=%f&lat_s=%f",
-                                      start_point.latitude,start_point.longitude];
-    NSString *positionString_end = [[NSString alloc] initWithFormat:@"lon_e=%f&lat_e=%f",
-                                    end_point.latitude,end_point.longitude];
-    [waypointStrings_ addObject:positionString_start];
-    [waypointStrings_ addObject:positionString_end];
-    NSString *sensor = @"false";
-    NSArray *parameters = [NSArray arrayWithObjects:sensor, waypointStrings_,
-                           nil];
-    NSArray *keys = [NSArray arrayWithObjects:@"sensor", @"waypoints", nil];
-    NSDictionary *query = [NSDictionary dictionaryWithObjects:parameters
-                                                      forKeys:keys];
-    //MDDirectionService *mds=[[MDDirectionService alloc] init];
-    SEL selector = @selector(addDirections:);
-    //[mds setDirectionsQuery:query
-    [self setDirectionsQuery: query
-               withSelector:selector
-               withDelegate:self];
+    [self addDirections:wholeJson];
     
 }
 - (void)addDirections:(NSDictionary *)json {
@@ -181,13 +164,13 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
     MGLPolyline *polyline = [MGLPolyline polylineWithCoordinates:coordinates count:coordinatesCount];
     
     __weak typeof(self) weakSelf = self;
-    /*
+    
     dispatch_async(dispatch_get_main_queue(), ^(void)
                    {
                        [weakSelf.MapBoxView addAnnotation:polyline];
                    });
-     */
-    [weakSelf.MapBoxView addAnnotation:polyline];
+    
+    //[weakSelf.MapBoxView addAnnotation:polyline];
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
@@ -237,64 +220,6 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
  }
  */
 
--(void)setDirectionsQuery:(NSDictionary*) query withSelector:(SEL)selector withDelegate:(id)delegate{
-    NSArray *waypoints=[query objectForKey:@"waypoints"];
-    NSString *origin=[waypoints objectAtIndex:0];
-    int waypointCount=[waypoints count];
-    int destinationPos=waypointCount-1;
-    NSString *destination=[waypoints objectAtIndex:destinationPos];
-    //NSString *sensor=[query objectForKey:@"sensor"];
-    NSMutableString *url=[NSMutableString stringWithFormat:@"%@%@&%@",kMDDirectionsURL,origin,destination];
-    /*
-     if(waypointCount>2){
-     [url appendString:@"&waypoints=optimize:true"];
-     int wpCount=waypointCount-2;
-     for(int i=1;i<wpCount;i++){
-     [url appendString:@"|"];
-     [url appendString:[waypoints objectAtIndex:i]];
-     
-     }
-     }
-     */
-    NSLog(@"api: %@",url);
-    url=[url stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
-    _directionsURL=[NSURL URLWithString:url];
-    [self retrieveDirections:selector withDelegate:delegate];
-    
-}
-
--(void)retrieveDirections:(SEL)selector withDelegate:(id)delegate{
-    
-     NSData* data=[NSData dataWithContentsOfURL:_directionsURL];
-     [self fetchedData:data withSelector:selector withDelegate:delegate];
-     
-    
-    /*
-    [SVProgressHUD show];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data=[NSData dataWithContentsOfURL:_directionsURL];
-        [self fetchedData:data withSelector:selector withDelegate:delegate];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [SVProgressHUD dismiss];
-        });
-    });
-    */
-    /*
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSData* data=[NSData dataWithContentsOfURL:_directionsURL];
-        [self fetchedData:data withSelector:selector withDelegate:delegate];
-    });
-    */
-}
--(void) fetchedData:(NSData *)data withSelector:(SEL)selector withDelegate:(id)delegate{
-    NSError* error;
-    NSDictionary *json = [NSJSONSerialization
-                          JSONObjectWithData:data
-                          options:kNilOptions
-                          error:&error];
-    [delegate performSelector:selector withObject:json];
-    
-}
 
 @end
 

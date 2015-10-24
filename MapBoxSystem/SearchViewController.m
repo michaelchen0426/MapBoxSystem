@@ -12,7 +12,12 @@
 @interface SearchViewController (){
     double start_lat,start_lon,end_lat,end_lon;
     NSArray *history_search_arr;
-
+    CLLocationCoordinate2D position_start;
+    CLLocationCoordinate2D position_end;
+    NSMutableArray *waypointStrings_;
+    NSURL *_directionsURL;
+    NSDictionary *wholeJson;
+    Boolean loadFinished;
 }
 @property (weak, nonatomic) IBOutlet UITableView *historyTableView;
 @property (weak, nonatomic) IBOutlet UITextField *StartField;
@@ -25,9 +30,14 @@
 @synthesize start_text;
 @synthesize end_text;
 @synthesize historyTableView;
+static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"SearchViewController viewDidLoad");
+    loadFinished=false;
+    waypointStrings_ = [[NSMutableArray alloc]init];
     gs_start = [[GCGeocodingService alloc] init];
     gs_end = [[GCGeocodingService alloc] init];
     if (start_text.length>0) {
@@ -79,49 +89,155 @@
     [self.EndField becomeFirstResponder];
 }
 - (void)Search{
+    [SVProgressHUD show];
     NSLog(@"SearchViewController Search!");
-    [gs_start geocodeAddress:self.StartField.text];
-    [gs_end geocodeAddress:self.EndField.text];
-    if ([gs_start isGeocoded]&&[gs_end isGeocoded] ) {
-        NSLog(@"Geocode Successfully!");
-        start_lat = [[gs_start.geocode objectForKey:@"lat"] doubleValue];
-        start_lon = [[gs_start.geocode objectForKey:@"lng"] doubleValue];
-        end_lat = [[gs_end.geocode objectForKey:@"lat"] doubleValue];
-        end_lon = [[gs_end.geocode objectForKey:@"lng"] doubleValue];
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSArray *search_one = [NSArray arrayWithObjects:self.StartField.text, self.EndField.text, nil];
-        //NSDictionary *myDictionary = [userDefaults dictionaryForKey:@"myDictionary"];
-        if([userDefaults objectForKey:@"history_search"]){
-            NSArray *old_history_Dictionary = [userDefaults arrayForKey:@"history_search"];
-            NSMutableArray *new_history_Dictionary=[old_history_Dictionary mutableCopy];
-            Boolean is_repeated=false;
-            for (NSArray *one in new_history_Dictionary) {
-                if ([one[0] isEqualToString:search_one[0]]&&[one[1] isEqualToString:search_one[1]]) {
-                    is_repeated=true;
-                    break;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [gs_start geocodeAddress:self.StartField.text];
+        [gs_end geocodeAddress:self.EndField.text];
+        if ([gs_start isGeocoded]&&[gs_end isGeocoded] ) {
+            NSLog(@"Geocode Successfully!");
+            start_lat = [[gs_start.geocode objectForKey:@"lat"] doubleValue];
+            start_lon = [[gs_start.geocode objectForKey:@"lng"] doubleValue];
+            end_lat = [[gs_end.geocode objectForKey:@"lat"] doubleValue];
+            end_lon = [[gs_end.geocode objectForKey:@"lng"] doubleValue];
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSArray *search_one = [NSArray arrayWithObjects:self.StartField.text, self.EndField.text, nil];
+            //NSDictionary *myDictionary = [userDefaults dictionaryForKey:@"myDictionary"];
+            if([userDefaults objectForKey:@"history_search"]){
+                NSArray *old_history_Dictionary = [userDefaults arrayForKey:@"history_search"];
+                NSMutableArray *new_history_Dictionary=[old_history_Dictionary mutableCopy];
+                Boolean is_repeated=false;
+                for (NSArray *one in new_history_Dictionary) {
+                    if ([one[0] isEqualToString:search_one[0]]&&[one[1] isEqualToString:search_one[1]]) {
+                        is_repeated=true;
+                        break;
+                    }
                 }
-            }
-            if (!is_repeated) {
+                if (!is_repeated) {
+                    [new_history_Dictionary addObject:search_one];
+                    [userDefaults removeObjectForKey:@"history_search"];
+                    [userDefaults setObject:new_history_Dictionary forKey:@"history_search"];
+                }
+            }else{
+                NSMutableArray *new_history_Dictionary=[[NSMutableArray alloc] init];
                 [new_history_Dictionary addObject:search_one];
-                [userDefaults removeObjectForKey:@"history_search"];
                 [userDefaults setObject:new_history_Dictionary forKey:@"history_search"];
             }
+            position_start = (CLLocationCoordinate2D){start_lat,start_lon};
+            position_end = (CLLocationCoordinate2D){end_lat,end_lon};
+            [self callWebAPI];
+            
         }else{
-            NSMutableArray *new_history_Dictionary=[[NSMutableArray alloc] init];
-            [new_history_Dictionary addObject:search_one];
-            [userDefaults setObject:new_history_Dictionary forKey:@"history_search"];
+            NSLog(@"Geocode Error!");
+            
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Geocoded Error" message:[NSString stringWithFormat:@"1, %@; 2, %@",[gs_start getErrorInfo],[gs_end getErrorInfo]] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:okAction];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:alertController animated:YES completion:nil];
+            });
         }
-        [self performSegueWithIdentifier:@"Search" sender:self];
-        
-    }else{
-        NSLog(@"Geocode Error!");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (loadFinished) {
+                [SVProgressHUD dismiss];
+            }
+            
+        });
+    });
+}
 
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Geocoded Error" message:[NSString stringWithFormat:@"1, %@; 2, %@",[gs_start getErrorInfo],[gs_end getErrorInfo]] preferredStyle:UIAlertControllerStyleAlert];
-        [self presentViewController:alertController animated:YES completion:nil];
-    }
+-(void)callWebAPI{
+    NSString *positionString_start = [[NSString alloc] initWithFormat:@"lon_s=%f&lat_s=%f",
+                                      position_start.latitude,position_start.longitude];
+    NSString *positionString_end = [[NSString alloc] initWithFormat:@"lon_e=%f&lat_e=%f",
+                                    position_end.latitude,position_end.longitude];
+    [waypointStrings_ addObject:positionString_start];
+    [waypointStrings_ addObject:positionString_end];
+    NSString *sensor = @"false";
+    NSArray *parameters = [NSArray arrayWithObjects:sensor, waypointStrings_,
+                           nil];
+    NSArray *keys = [NSArray arrayWithObjects:@"sensor", @"waypoints", nil];
+    //NSLog(@"parameters is %@",parameters);
+    //NSLog(@"keys is %@",keys);
+    NSDictionary *query = [NSDictionary dictionaryWithObjects:parameters
+                                                      forKeys:keys];
+    //MDDirectionService *mds=[[MDDirectionService alloc] init];
+    SEL selector = @selector(setPassData:);
+    //[mds setDirectionsQuery:query
+    [self setDirectionsQuery: query
+                withSelector:selector
+                withDelegate:self];
+}
+-(void)setDirectionsQuery:(NSDictionary*) query withSelector:(SEL)selector withDelegate:(id)delegate{
+    NSArray *waypoints=[query objectForKey:@"waypoints"];
+    NSString *origin=[waypoints objectAtIndex:0];
+    int waypointCount=[waypoints count];
+    int destinationPos=waypointCount-1;
+    NSString *destination=[waypoints objectAtIndex:destinationPos];
+    //NSString *sensor=[query objectForKey:@"sensor"];
+    NSMutableString *url=[NSMutableString stringWithFormat:@"%@%@&%@",kMDDirectionsURL,origin,destination];
+
+    NSLog(@"api: %@",url);
+    url=[url stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    _directionsURL=[NSURL URLWithString:url];
+    [self retrieveDirections:selector withDelegate:delegate];
+    
+}
+
+-(void)retrieveDirections:(SEL)selector withDelegate:(id)delegate{
+    /*
+     NSData* data=[NSData dataWithContentsOfURL:_directionsURL];
+     [self fetchedData:data withSelector:selector withDelegate:delegate];
+     */
+    NSLog(@"retrieveDirections!");
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:_directionsURL
+            completionHandler:^(NSData *data,
+                                NSURLResponse *response,
+                                NSError *error) {
+                NSLog(@"placeGetRequest!");
+                if (error==nil) {
+                    NSLog(@"get data!");
+                    wholeJson=[NSJSONSerialization
+                               JSONObjectWithData:data
+                               options:kNilOptions
+                               error:&error];
+                    loadFinished=true;
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self performSegueWithIdentifier:@"Search" sender:self];
+                    });
+                    //[self fetchedData:data withSelector:selector withDelegate:delegate];
+                }else{
+                    NSLog(@"Connection fail!");
+                    loadFinished=true;
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Connect Error" message:[NSString stringWithFormat:@"Direction Service is not available!"] preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+                    [alertController addAction:okAction];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self presentViewController:alertController animated:YES completion:nil];
+                    });
+                }
+                
+            }] resume];
+    
+    
+}
+-(void) fetchedData:(NSData *)data withSelector:(SEL)selector withDelegate:(id)delegate{
+    NSError* error;
+    NSDictionary *json = [NSJSONSerialization
+                          JSONObjectWithData:data
+                          options:kNilOptions
+                          error:&error];
+    
+    [delegate performSelector:selector withObject:json];
+    
+}
+- (void)setPassData:(NSDictionary *)json {
+    wholeJson=json;
 }
 - (IBAction)doSearch:(id)sender {
     NSLog(@"doSearch button!!");
+    
     [self Search];
     
     
@@ -141,11 +257,11 @@
     if([segue.identifier isEqualToString:@"Search"]){
         //id theSegue = segue.destinationViewController;
         NSLog(@"Perform Segure Search!");
-        CLLocationCoordinate2D position_start = (CLLocationCoordinate2D){start_lat,start_lon};
-        CLLocationCoordinate2D position_end = (CLLocationCoordinate2D){end_lat,end_lon};
+        
         DirectionMainViewController *directions=(DirectionMainViewController*)segue.destinationViewController;
         directions.position_start=position_start;
         directions.position_end=position_end;
+        directions.wholeJson=wholeJson;
         //[theSegue setValue:self.EndField.text forKey:@"endInfo"];
         //[theSegue setValue:self.EndField.text forKey:@"endInfo"];
         

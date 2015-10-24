@@ -28,10 +28,10 @@
     //NSLog(@"API is %@",url);
     url=[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *queryUrl=[NSURL URLWithString:url];
-    dispatch_sync(kBgQueue, ^{
+    //dispatch_sync(kBgQueue, ^{
         NSData *data=[NSData dataWithContentsOfURL:queryUrl];
         [self fetchedData:data];
-    });
+    //});
     
 }
 -(void) fetchedData:(NSData *)data{

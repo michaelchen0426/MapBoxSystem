@@ -28,6 +28,11 @@
 		04BE56DE1BDB4EF70007EA61 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE56DD1BDB4EF70007EA61 /* HistoryTableViewController.m */; };
 		04BE56E31BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE56E11BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m */; };
 		04BE56E41BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56E21BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib */; };
+		04BE56E71BDB567C0007EA61 /* gps-mapping.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56E51BDB567C0007EA61 /* gps-mapping.png */; };
+		04BE56E81BDB567C0007EA61 /* mapbox_symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56E61BDB567C0007EA61 /* mapbox_symbol.png */; };
+		04BE56EA1BDB581D0007EA61 /* MB__back.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56E91BDB581D0007EA61 /* MB__back.png */; };
+		04BE56EC1BDB583C0007EA61 /* Icons8-Ios7-Arrows-Back.ico in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56EB1BDB583C0007EA61 /* Icons8-Ios7-Arrows-Back.ico */; };
+		04BE56EE1BDB58E70007EA61 /* ic_search_48px-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56ED1BDB58E70007EA61 /* ic_search_48px-128.png */; };
 		451FF9FA7BA74E37ED5E5B0A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +74,11 @@
 		04BE56E01BDB53EE0007EA61 /* SingleHistoryTabelViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleHistoryTabelViewCell.h; sourceTree = "<group>"; };
 		04BE56E11BDB53EE0007EA61 /* SingleHistoryTabelViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleHistoryTabelViewCell.m; sourceTree = "<group>"; };
 		04BE56E21BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleHistoryTabelViewCell.xib; sourceTree = "<group>"; };
+		04BE56E51BDB567C0007EA61 /* gps-mapping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gps-mapping.png"; sourceTree = "<group>"; };
+		04BE56E61BDB567C0007EA61 /* mapbox_symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapbox_symbol.png; sourceTree = "<group>"; };
+		04BE56E91BDB581D0007EA61 /* MB__back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MB__back.png; sourceTree = "<group>"; };
+		04BE56EB1BDB583C0007EA61 /* Icons8-Ios7-Arrows-Back.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = "Icons8-Ios7-Arrows-Back.ico"; sourceTree = "<group>"; };
+		04BE56ED1BDB58E70007EA61 /* ic_search_48px-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_search_48px-128.png"; sourceTree = "<group>"; };
 		5D0994BC88B36CFC5BF300BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D0FC9DBC2BC4A3E480F22C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +159,11 @@
 		04BE56D71BDA5B8B0007EA61 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				04BE56ED1BDB58E70007EA61 /* ic_search_48px-128.png */,
+				04BE56EB1BDB583C0007EA61 /* Icons8-Ios7-Arrows-Back.ico */,
+				04BE56E91BDB581D0007EA61 /* MB__back.png */,
+				04BE56E51BDB567C0007EA61 /* gps-mapping.png */,
+				04BE56E61BDB567C0007EA61 /* mapbox_symbol.png */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -261,12 +276,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04BE56E81BDB567C0007EA61 /* mapbox_symbol.png in Resources */,
 				04BE56E41BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib in Resources */,
+				04BE56EC1BDB583C0007EA61 /* Icons8-Ios7-Arrows-Back.ico in Resources */,
 				041D017B1BD4DDB000847FD3 /* Settings.bundle in Resources */,
 				04BE56D61BDA226A0007EA61 /* HistoryTableViewCell.xib in Resources */,
 				041D01731BD4DAF300847FD3 /* LaunchScreen.storyboard in Resources */,
 				041D01701BD4DAF300847FD3 /* Assets.xcassets in Resources */,
+				04BE56EA1BDB581D0007EA61 /* MB__back.png in Resources */,
 				041D016E1BD4DAF300847FD3 /* Main.storyboard in Resources */,
+				04BE56E71BDB567C0007EA61 /* gps-mapping.png in Resources */,
+				04BE56EE1BDB58E70007EA61 /* ic_search_48px-128.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

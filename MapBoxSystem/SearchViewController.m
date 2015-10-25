@@ -35,6 +35,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
     NSLog(@"SearchViewController viewDidLoad");
     loadFinished=false;
     waypointStrings_ = [[NSMutableArray alloc]init];
@@ -71,7 +72,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
 }
 -(void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden=NO;
+    [self.navigationController setNavigationBarHidden:YES];
     // Implement here to check if already KVO is implemented.
     
 }

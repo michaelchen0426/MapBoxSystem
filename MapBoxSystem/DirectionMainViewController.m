@@ -10,10 +10,12 @@
 #import "MDDirectionService.h"
 #import "ContainerViewController.h"
 #import "DetailsViewController.h"
+#import "SubDirectionViewController.h"
 
 @interface DirectionMainViewController ()
 @property (nonatomic, weak) ContainerViewController *containerViewController;
 @property (nonatomic, weak) DetailsViewController *detailsViewController;
+@property (nonatomic, weak) SubDirectionViewController *subDirectionViewController;
 @end
 
 @implementation DirectionMainViewController{
@@ -102,7 +104,13 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
     
     
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"DirectionMainViewController viewWillAppear %lu",(unsigned long)[routes count]);
+    [self.navigationController.navigationBar setFrame:CGRectMake(0, 20, self.view.frame.size.width, 40)];
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -174,14 +182,14 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    //NSLog(@"%s", __PRETTY_FUNCTION__);
     
     return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"%s", __PRETTY_FUNCTION__);
+    //NSLog(@"%s", __PRETTY_FUNCTION__);
     
     if ([segue.identifier isEqualToString:@"embedContainer"]) {
         NSLog(@"embedContainer segue execute");
@@ -194,6 +202,11 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
         self.detailsViewController.routes=routes;
         self.detailsViewController.route_points=route_points;
         
+    }else if ([segue.identifier isEqualToString:@"DetailsTableView"]){
+        NSLog(@"DetailsTableView segue execute: %lu",(unsigned long)[routes count]);
+        self.subDirectionViewController = segue.destinationViewController;
+        self.subDirectionViewController.routes=routes;
+        
     }
 }
 - (void)enterDetails{
@@ -201,6 +214,9 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
     
     [self performSegueWithIdentifier:@"Details" sender:self];
     
+}
+- (void)enterDetailsTableView{
+    [self performSegueWithIdentifier:@"DetailsTableView" sender:self];
 }
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
     return nil;

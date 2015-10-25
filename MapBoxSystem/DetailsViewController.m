@@ -44,12 +44,16 @@
     paddingInsets = UIEdgeInsetsMake(14.0, 14.0, 14.0, 14.0);
     coordinatesCount=[route_points count];
     self.MapBoxView.delegate=self;
-    [self nextDetail:index_now];
+    [self gotoDetail:index_now];
 
     //self.GoogleMapView.tag=101;
     //[MapView addSubview:mapView_];
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setFrame:CGRectMake(0, 20, self.view.frame.size.width, 40)];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -72,16 +76,14 @@
         [self.detailsContainerVC setDelegate:self];
     }
 }
-
-- (void)nextDetail:(NSInteger) next_index{
-    //[mapView_ removeFromSuperview];
+- (void)gotoDetail:(NSInteger)indexDetail{
     [self.MapBoxView removeAnnotations:self.MapBoxView.annotations];
     
-    start_lat=[routes[next_index][9] doubleValue];
-    start_lon=[routes[next_index][10] doubleValue];
-    end_lat=[routes[next_index][11] doubleValue];
-    end_lon=[routes[next_index][12] doubleValue];
-    traffic_con=routes[next_index][18];
+    start_lat=[routes[indexDetail][9] doubleValue];
+    start_lon=[routes[indexDetail][10] doubleValue];
+    end_lat=[routes[indexDetail][11] doubleValue];
+    end_lon=[routes[indexDetail][12] doubleValue];
+    traffic_con=routes[indexDetail][18];
     NSLog(@"traffic_con is %@",traffic_con);
     position_start.latitude=start_lat;
     position_start.longitude=start_lon;
@@ -92,7 +94,7 @@
     MGLCoordinateBounds bounds = MGLCoordinateBoundsMake(CLLocationCoordinate2DMake(start_lat, start_lon),
                                                          CLLocationCoordinate2DMake(end_lat, end_lon));
     //[self.MapBoxView setCenterCoordinate:CLLocationCoordinate2DMake((start_lat+end_lat)/2, (start_lon+end_lon)/2)
-                                //animated:YES];
+    //animated:YES];
     [self.MapBoxView setVisibleCoordinateBounds:bounds edgePadding:paddingInsets animated:NO];
     
     
@@ -110,8 +112,8 @@
     [self.MapBoxView addAnnotation:end_marker];
     
     
-    NSInteger start_position=[routes[next_index][16] integerValue];
-    NSInteger end_position=[routes[next_index][17] integerValue];
+    NSInteger start_position=[routes[indexDetail][16] integerValue];
+    NSInteger end_position=[routes[indexDetail][17] integerValue];
     CLLocationCoordinate2D allcoordinates[coordinatesCount];
     CLLocationCoordinate2D specific_coordinates[end_position-start_position+1];
     // Create a coordinates array, sized to fit all of the coordinates in the line.
@@ -163,7 +165,22 @@
                    {
                        [weakSelf_2.MapBoxView addAnnotation:polyline_specific];
                    });
-    //[MapView viewWithTag:101]=mapView_;
+
+}
+
+- (void)beforeDetail:(NSInteger)before_index{
+    if (before_index>=0&&before_index<[routes count]) {
+        [self gotoDetail:before_index];
+    }
+}
+
+- (void)nextDetail:(NSInteger) next_index{
+    if (next_index>=0&&next_index<[routes count]) {
+        [self gotoDetail:next_index];
+    }
+    
+    //[mapView_ removeFromSuperview];
+        //[MapView viewWithTag:101]=mapView_;
     //[MapView addSubview:mapView_];
     
 }

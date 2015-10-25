@@ -11,6 +11,7 @@
 
 // 代理传值方法
 - (void)enterDetails;
+- (void)enterDetailsTableView;
 
 @end
 @interface ContainerViewController : UIViewController
@@ -20,5 +21,6 @@
 - (void)printRoute;
 -(void)setInfo;
 - (IBAction)intoDetails:(id)sender;
+- (IBAction)showDetailsInTable:(id)sender;
 @property (weak, nonatomic) id<ContainerViewControllerDelegate> delegate;
 @end

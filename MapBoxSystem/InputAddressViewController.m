@@ -27,6 +27,7 @@
 @synthesize is_Start;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
     if (start_text.length>0&&is_Start) {
         addressField.text=start_text;
     }else if(end_text.length>0&&!is_Start){

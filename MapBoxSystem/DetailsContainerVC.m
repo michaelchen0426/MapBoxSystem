@@ -46,18 +46,37 @@
 }
 -(void)resetContent{
     total_length=[routes count];
-    roadName_Label.text=routes[index_now][1];
+    if ([routes[index_now][1] length]>1) {
+        roadName_Label.text=routes[index_now][1];
+    }else{
+        roadName_Label.text=@"UnKnown";
+    }
+    
     Length_Lab.text=routes[index_now][5];
     time_Label.text=[[NSString alloc] initWithFormat:@"%@ s", [routes[index_now][4] stringValue]];
     direction_Label.text=routes[index_now][6];
     Speed_Label.text=routes[index_now][15];
-    trafficCondition_Label.text=routes[index_now][18];
+    if ([routes[index_now][18] isEqualToString:@"-1"]) {
+        trafficCondition_Label.text=@"UnKnown";
+    }else{
+        trafficCondition_Label.text=routes[index_now][18];
+    }
+   
 }
 - (IBAction)gotoNext:(id)sender{
     //NSLog(@"DetailsContainerVC gotoNext");
     if (index_now<total_length-1) {
         index_now++;
         [_delegate nextDetail:index_now];
+        [self resetContent];
+    }
+    
+}
+- (IBAction)gotoBefore:(id)sender{
+    //NSLog(@"DetailsContainerVC gotoNext");
+    if (index_now>0) {
+        index_now--;
+        [_delegate beforeDetail:index_now];
         [self resetContent];
     }
     

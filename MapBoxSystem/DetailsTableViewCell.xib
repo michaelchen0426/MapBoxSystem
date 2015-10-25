@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="DetailsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n82-dc-Hcw">
+                        <rect key="frame" x="8" y="8" width="30" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="URN-hN-52U"/>
+                            <constraint firstAttribute="width" constant="30" id="ehb-A8-5yo"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="URN-hN-52U"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCp-86-g5k">
+                        <rect key="frame" x="245" y="12" width="70" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="bsW-uZ-atC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPz-UD-3mV">
+                        <rect key="frame" x="58" y="12" width="177" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="TeV-W4-xhu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sPz-UD-3mV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5wL-Xu-oGW"/>
+                    <constraint firstAttribute="trailing" secondItem="JCp-86-g5k" secondAttribute="trailing" constant="5" id="6ST-uX-Mzy"/>
+                    <constraint firstItem="JCp-86-g5k" firstAttribute="height" secondItem="sPz-UD-3mV" secondAttribute="height" id="O9b-6P-SR5"/>
+                    <constraint firstItem="JCp-86-g5k" firstAttribute="trailing" secondItem="sPz-UD-3mV" secondAttribute="trailing" constant="80" id="Qts-Vg-iIh"/>
+                    <constraint firstItem="n82-dc-Hcw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="XPB-29-UTJ"/>
+                    <constraint firstItem="JCp-86-g5k" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dwa-5X-ACX"/>
+                    <constraint firstItem="n82-dc-Hcw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="fgb-vC-yip"/>
+                    <constraint firstItem="n82-dc-Hcw" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" id="n7A-ig-JnD"/>
+                    <constraint firstAttribute="bottom" secondItem="n82-dc-Hcw" secondAttribute="bottom" constant="8" id="sHy-Lc-CIq"/>
+                    <constraint firstItem="sPz-UD-3mV" firstAttribute="leading" secondItem="n82-dc-Hcw" secondAttribute="leading" constant="50" id="w6G-ku-9xM"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="n7A-ig-JnD"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="instructionImage" destination="n82-dc-Hcw" id="IMn-iq-6f4"/>
+                <outlet property="roadLabel" destination="sPz-UD-3mV" id="LrK-cT-cHv"/>
+                <outlet property="trafficLabel" destination="JCp-86-g5k" id="PG5-cg-pb4"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

@@ -66,6 +66,9 @@
     [_delegate enterDetails];
     //[self performSegueWithIdentifier:@"Details" sender:self];
 }
+-(IBAction)showDetailsInTable:(id)sender{
+    [_delegate enterDetailsTableView];
+}
 /*
  #pragma mark - Navigation
  

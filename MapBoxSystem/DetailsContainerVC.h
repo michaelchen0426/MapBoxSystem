@@ -10,6 +10,7 @@
 
 // 代理传值方法
 - (void)nextDetail:(NSInteger) next_index;
+- (void)beforeDetail:(NSInteger) before_index;
 
 @end
 @interface DetailsContainerVC : UIViewController
@@ -17,6 +18,7 @@
 
 -(void)resetContent;
 - (IBAction)gotoNext:(id)sender;
+- (IBAction)gotoBefore:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *roadName_Label;
 @property (weak, nonatomic) IBOutlet UILabel *Length_Lab;
 @property (weak, nonatomic) IBOutlet UILabel *Speed_Label;

@@ -58,6 +58,7 @@
 		04BE57211BDCBD470007EA61 /* GoStraight.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57201BDCBD470007EA61 /* GoStraight.png */; };
 		04BE57231BDCC3D30007EA61 /* Next_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57221BDCC3D30007EA61 /* Next_Icon.png */; };
 		04BE57251BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57241BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png */; };
+		04BE57281BDE07630007EA61 /* AmbiguousGeoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE57271BDE07630007EA61 /* AmbiguousGeoViewController.m */; };
 		451FF9FA7BA74E37ED5E5B0A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,8 @@
 		04BE57201BDCBD470007EA61 /* GoStraight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoStraight.png; sourceTree = "<group>"; };
 		04BE57221BDCC3D30007EA61 /* Next_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next_Icon.png; sourceTree = "<group>"; };
 		04BE57241BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icons8-Ios7-Arrows-Next.png"; sourceTree = "<group>"; };
+		04BE57261BDE07630007EA61 /* AmbiguousGeoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmbiguousGeoViewController.h; sourceTree = "<group>"; };
+		04BE57271BDE07630007EA61 /* AmbiguousGeoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmbiguousGeoViewController.m; sourceTree = "<group>"; };
 		5D0994BC88B36CFC5BF300BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D0FC9DBC2BC4A3E480F22C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,10 +180,12 @@
 				041D01671BD4DAF300847FD3 /* AppDelegate.m */,
 				041D01691BD4DAF300847FD3 /* ViewController.h */,
 				041D016A1BD4DAF300847FD3 /* ViewController.m */,
-				041D017F1BD4EB8B00847FD3 /* SearchViewController.h */,
-				041D01801BD4EB8B00847FD3 /* SearchViewController.m */,
 				041D01911BD739A500847FD3 /* InputAddressViewController.h */,
 				041D01921BD739A500847FD3 /* InputAddressViewController.m */,
+				041D017F1BD4EB8B00847FD3 /* SearchViewController.h */,
+				041D01801BD4EB8B00847FD3 /* SearchViewController.m */,
+				04BE57261BDE07630007EA61 /* AmbiguousGeoViewController.h */,
+				04BE57271BDE07630007EA61 /* AmbiguousGeoViewController.m */,
 				041D01851BD4EBEA00847FD3 /* DirectionMainViewController.h */,
 				041D01861BD4EBEA00847FD3 /* DirectionMainViewController.m */,
 				04BE571B1BDC8E420007EA61 /* SubDirectionViewController.h */,
@@ -466,6 +471,7 @@
 				041D01931BD739A500847FD3 /* InputAddressViewController.m in Sources */,
 				04BE56D51BDA226A0007EA61 /* HistoryTableViewCell.m in Sources */,
 				041D018A1BD4EC1400847FD3 /* DetailsViewController.m in Sources */,
+				04BE57281BDE07630007EA61 /* AmbiguousGeoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,6 +14,8 @@
 -(void)geocodeAddress:(NSString *)address;
 -(BOOL) isGeocoded;
 -(NSString*) getErrorInfo;
+-(bool) isAmbiguous;
+-(void) setClear;
 @property (nonatomic, strong) NSDictionary *geocode;
 
 @end

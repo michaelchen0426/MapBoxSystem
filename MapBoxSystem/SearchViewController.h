@@ -11,12 +11,15 @@
 #import "GCGeocodingService.h"
 #import "DirectionMainViewController.h"
 #import "HistoryTableViewCell.h"
+#import "AmbiguousGeoViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 @interface SearchViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
-@property (strong,nonatomic) GCGeocodingService *gs_start;
-@property (strong,nonatomic) GCGeocodingService *gs_end;
+
 @property (strong,nonatomic) NSString *start_text;
 @property (strong,nonatomic) NSString *end_text;
+@property (strong,nonatomic) NSDictionary *startDictionary;
+@property (strong,nonatomic) NSDictionary *endDictionary;
+
 -(void)Search;
 -(IBAction)touchStart:(id)sender;
 -(IBAction)touchEnd:(id)sender;

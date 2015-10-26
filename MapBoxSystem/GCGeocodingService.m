@@ -11,6 +11,7 @@
 
 @implementation GCGeocodingService{
     BOOL is_ok;
+    BOOL isMultiResults;
     NSString *check_info;
 }
 
@@ -19,6 +20,7 @@
     self=[super init];
     geocode=[[NSDictionary alloc] initWithObjectsAndKeys:@"0.0",@"lat",@"0.0",@"lng",@"Null Island",@"address", nil];
     is_ok=YES;
+    isMultiResults=NO;
     return self;
     
 }
@@ -43,14 +45,27 @@
     // NSLog(@"fetchedData is %@",check);
     if([check isEqualToString:@"OK"]){
         NSArray* results=[json objectForKey:@"results"];
-        NSDictionary *result=[results objectAtIndex:0];
-        NSString *address=[result objectForKey:@"formatted_address"];
-        NSDictionary *geometry=[result objectForKey:@"geometry"];
-        NSDictionary *location=[geometry objectForKey:@"location"];
-        NSString *lat=[location objectForKey:@"lat"];
-        NSString *lng=[location objectForKey:@"lng"];
-        
-        NSDictionary *gc=[[NSDictionary alloc]initWithObjectsAndKeys:lat,@"lat",lng,@"lng",address,@"address", nil];
+        if ([results count]>1) {
+            isMultiResults=YES;
+            
+        }else{
+            isMultiResults=NO;
+        }
+        NSDictionary *result=[[NSDictionary alloc] init];
+        NSDictionary *geometry=[[NSDictionary alloc] init];
+        NSDictionary *location=[[NSDictionary alloc] init];
+        NSMutableDictionary *gc=[[NSMutableDictionary alloc] initWithCapacity:[results count]];
+        for (int i=0; i<[results count]; i++) {
+            result=[results objectAtIndex:i];
+            NSString *address=[result objectForKey:@"formatted_address"];
+            geometry=[result objectForKey:@"geometry"];
+            location=[geometry objectForKey:@"location"];
+            NSString *lat=[location objectForKey:@"lat"];
+            NSString *lng=[location objectForKey:@"lng"];
+            NSDictionary *oneDic=[[NSDictionary alloc]initWithObjectsAndKeys:lat,@"lat",lng,@"lng",address,@"address", nil];
+            [gc setObject:oneDic forKey:[NSString stringWithFormat:@"Result%d",i]];
+            
+        }
         geocode=gc;
     }else{
         is_ok=NO;
@@ -63,5 +78,11 @@
 }
 -(NSString*) getErrorInfo{
     return check_info;
+}
+-(BOOL) isAmbiguous{
+    return isMultiResults;
+}
+-(void) setClear{
+    isMultiResults=NO;
 }
 @end

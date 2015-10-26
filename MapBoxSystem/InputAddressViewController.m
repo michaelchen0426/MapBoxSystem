@@ -77,7 +77,7 @@
                                 auto_num=[results count];
                                 for (GMSAutocompletePrediction* result in results) {
                                     [places_collection addObject:result.attributedFullText.string];
-                                    NSLog(@"Result '%@' , num is %lu", result.attributedFullText.string, (unsigned long)[places_collection count]);
+                                    //NSLog(@"Result '%@' , num is %lu", result.attributedFullText.string, (unsigned long)[places_collection count]);
                                 }
                                 
                                 [autocompleteTableView reloadData];

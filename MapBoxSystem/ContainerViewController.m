@@ -27,6 +27,8 @@
 @synthesize Dis_label;
 @synthesize Time_Label;
 @synthesize Traffic_con_Label;
+@synthesize startLocation;
+@synthesize endLocation;
 - (void)viewDidLoad {
     [super viewDidLoad];
     //NSLog(@"ContainerViewController %@",routes);
@@ -44,8 +46,10 @@
 -(void)setInfo{
     NSLog(@"ContainerViewController setInfo %@",summary_route);
     
-    Start_Label.text=[summary_route objectForKey:@"start_point"];
-    End_Label.text=[summary_route objectForKey:@"end_point"];
+    //Start_Label.text=[summary_route objectForKey:@"start_point"];
+    //End_Label.text=[summary_route objectForKey:@"end_point"];
+    Start_Label.text=startLocation;
+    End_Label.text=endLocation;
     NSString *dis_str=[[summary_route objectForKey:@"total_distance"] stringValue];
     Dis_label.text=[[NSString alloc] initWithFormat:@"%@ m", dis_str];
     NSString *time_str=[[summary_route objectForKey:@"total_time"] stringValue];

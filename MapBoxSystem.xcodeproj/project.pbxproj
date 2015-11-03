@@ -37,8 +37,6 @@
 		04BE56F51BDBB85D0007EA61 /* DetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE56F31BDBB85D0007EA61 /* DetailsTableViewCell.m */; };
 		04BE56F61BDBB85D0007EA61 /* DetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56F41BDBB85D0007EA61 /* DetailsTableViewCell.xib */; };
 		04BE57071BDC89030007EA61 /* ReachedYourDestination.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56F71BDC89030007EA61 /* ReachedYourDestination.png */; };
-		04BE57081BDC89030007EA61 /* InverseAccessRestrictionFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56F81BDC89030007EA61 /* InverseAccessRestrictionFlag.png */; };
-		04BE57091BDC89030007EA61 /* AccessRestrictionFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56F91BDC89030007EA61 /* AccessRestrictionFlag.png */; };
 		04BE570A1BDC89030007EA61 /* EnterRoundAbout.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56FA1BDC89030007EA61 /* EnterRoundAbout.png */; };
 		04BE570B1BDC89030007EA61 /* LeaveRoundAbout.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56FB1BDC89030007EA61 /* LeaveRoundAbout.png */; };
 		04BE570C1BDC89030007EA61 /* StayOnRoundAbout.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE56FC1BDC89030007EA61 /* StayOnRoundAbout.png */; };
@@ -52,13 +50,17 @@
 		04BE57141BDC89030007EA61 /* TurnSharpLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57041BDC89030007EA61 /* TurnSharpLeft.png */; };
 		04BE57151BDC89030007EA61 /* UTurn.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57051BDC89030007EA61 /* UTurn.png */; };
 		04BE57161BDC89030007EA61 /* TurnSlightRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57061BDC89030007EA61 /* TurnSlightRight.png */; };
-		04BE57191BDC89200007EA61 /* TurnLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57171BDC89200007EA61 /* TurnLeft.png */; };
-		04BE571A1BDC89200007EA61 /* TurnRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57181BDC89200007EA61 /* TurnRight.png */; };
 		04BE571D1BDC8E420007EA61 /* SubDirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE571C1BDC8E420007EA61 /* SubDirectionViewController.m */; };
 		04BE57211BDCBD470007EA61 /* GoStraight.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57201BDCBD470007EA61 /* GoStraight.png */; };
 		04BE57231BDCC3D30007EA61 /* Next_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57221BDCC3D30007EA61 /* Next_Icon.png */; };
 		04BE57251BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 04BE57241BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png */; };
 		04BE57281BDE07630007EA61 /* AmbiguousGeoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE57271BDE07630007EA61 /* AmbiguousGeoViewController.m */; };
+		04E54DE71BE0EC7E0029A3D6 /* AccessRestrictionFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E54DE31BE0EC7E0029A3D6 /* AccessRestrictionFlag.png */; };
+		04E54DE81BE0EC7E0029A3D6 /* InverseAccessRestrictionFlag.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E54DE41BE0EC7E0029A3D6 /* InverseAccessRestrictionFlag.png */; };
+		04E54DE91BE0EC7E0029A3D6 /* TurnLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E54DE51BE0EC7E0029A3D6 /* TurnLeft.png */; };
+		04E54DEA1BE0EC7E0029A3D6 /* TurnRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E54DE61BE0EC7E0029A3D6 /* TurnRight.png */; };
+		04FBD0B61BE8700400535E68 /* PowerSwitch_User.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FBD0B51BE8700400535E68 /* PowerSwitch_User.png */; };
+		04FBD0B81BE870C200535E68 /* powerswitch1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FBD0B71BE870C200535E68 /* powerswitch1.png */; };
 		451FF9FA7BA74E37ED5E5B0A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,8 +113,6 @@
 		04BE56F31BDBB85D0007EA61 /* DetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsTableViewCell.m; sourceTree = "<group>"; };
 		04BE56F41BDBB85D0007EA61 /* DetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsTableViewCell.xib; sourceTree = "<group>"; };
 		04BE56F71BDC89030007EA61 /* ReachedYourDestination.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReachedYourDestination.png; sourceTree = "<group>"; };
-		04BE56F81BDC89030007EA61 /* InverseAccessRestrictionFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InverseAccessRestrictionFlag.png; sourceTree = "<group>"; };
-		04BE56F91BDC89030007EA61 /* AccessRestrictionFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessRestrictionFlag.png; sourceTree = "<group>"; };
 		04BE56FA1BDC89030007EA61 /* EnterRoundAbout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EnterRoundAbout.png; sourceTree = "<group>"; };
 		04BE56FB1BDC89030007EA61 /* LeaveRoundAbout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveRoundAbout.png; sourceTree = "<group>"; };
 		04BE56FC1BDC89030007EA61 /* StayOnRoundAbout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StayOnRoundAbout.png; sourceTree = "<group>"; };
@@ -126,8 +126,6 @@
 		04BE57041BDC89030007EA61 /* TurnSharpLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnSharpLeft.png; sourceTree = "<group>"; };
 		04BE57051BDC89030007EA61 /* UTurn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UTurn.png; sourceTree = "<group>"; };
 		04BE57061BDC89030007EA61 /* TurnSlightRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnSlightRight.png; sourceTree = "<group>"; };
-		04BE57171BDC89200007EA61 /* TurnLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnLeft.png; sourceTree = "<group>"; };
-		04BE57181BDC89200007EA61 /* TurnRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnRight.png; sourceTree = "<group>"; };
 		04BE571B1BDC8E420007EA61 /* SubDirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubDirectionViewController.h; sourceTree = "<group>"; };
 		04BE571C1BDC8E420007EA61 /* SubDirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubDirectionViewController.m; sourceTree = "<group>"; };
 		04BE57201BDCBD470007EA61 /* GoStraight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GoStraight.png; sourceTree = "<group>"; };
@@ -135,6 +133,12 @@
 		04BE57241BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icons8-Ios7-Arrows-Next.png"; sourceTree = "<group>"; };
 		04BE57261BDE07630007EA61 /* AmbiguousGeoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmbiguousGeoViewController.h; sourceTree = "<group>"; };
 		04BE57271BDE07630007EA61 /* AmbiguousGeoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmbiguousGeoViewController.m; sourceTree = "<group>"; };
+		04E54DE31BE0EC7E0029A3D6 /* AccessRestrictionFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AccessRestrictionFlag.png; sourceTree = "<group>"; };
+		04E54DE41BE0EC7E0029A3D6 /* InverseAccessRestrictionFlag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InverseAccessRestrictionFlag.png; sourceTree = "<group>"; };
+		04E54DE51BE0EC7E0029A3D6 /* TurnLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnLeft.png; sourceTree = "<group>"; };
+		04E54DE61BE0EC7E0029A3D6 /* TurnRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TurnRight.png; sourceTree = "<group>"; };
+		04FBD0B51BE8700400535E68 /* PowerSwitch_User.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PowerSwitch_User.png; sourceTree = "<group>"; };
+		04FBD0B71BE870C200535E68 /* powerswitch1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powerswitch1.png; sourceTree = "<group>"; };
 		5D0994BC88B36CFC5BF300BD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7B68F61E0E4CB5A8F3B3D8CC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D0FC9DBC2BC4A3E480F22C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -219,14 +223,16 @@
 		04BE56D71BDA5B8B0007EA61 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				04FBD0B71BE870C200535E68 /* powerswitch1.png */,
+				04FBD0B51BE8700400535E68 /* PowerSwitch_User.png */,
+				04E54DE31BE0EC7E0029A3D6 /* AccessRestrictionFlag.png */,
+				04E54DE41BE0EC7E0029A3D6 /* InverseAccessRestrictionFlag.png */,
+				04E54DE51BE0EC7E0029A3D6 /* TurnLeft.png */,
+				04E54DE61BE0EC7E0029A3D6 /* TurnRight.png */,
 				04BE57241BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png */,
 				04BE57221BDCC3D30007EA61 /* Next_Icon.png */,
 				04BE57201BDCBD470007EA61 /* GoStraight.png */,
-				04BE57171BDC89200007EA61 /* TurnLeft.png */,
-				04BE57181BDC89200007EA61 /* TurnRight.png */,
 				04BE56F71BDC89030007EA61 /* ReachedYourDestination.png */,
-				04BE56F81BDC89030007EA61 /* InverseAccessRestrictionFlag.png */,
-				04BE56F91BDC89030007EA61 /* AccessRestrictionFlag.png */,
 				04BE56FA1BDC89030007EA61 /* EnterRoundAbout.png */,
 				04BE56FB1BDC89030007EA61 /* LeaveRoundAbout.png */,
 				04BE56FC1BDC89030007EA61 /* StayOnRoundAbout.png */,
@@ -331,6 +337,7 @@
 				TargetAttributes = {
 					041D015F1BD4DAF200847FD3 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 23SG6VNTXG;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -366,11 +373,10 @@
 				04BE56E41BDB53EE0007EA61 /* SingleHistoryTabelViewCell.xib in Resources */,
 				04BE57251BDCC5860007EA61 /* Icons8-Ios7-Arrows-Next.png in Resources */,
 				04BE56F61BDBB85D0007EA61 /* DetailsTableViewCell.xib in Resources */,
-				04BE571A1BDC89200007EA61 /* TurnRight.png in Resources */,
-				04BE57091BDC89030007EA61 /* AccessRestrictionFlag.png in Resources */,
 				04BE57161BDC89030007EA61 /* TurnSlightRight.png in Resources */,
 				04BE56EC1BDB583C0007EA61 /* Icons8-Ios7-Arrows-Back.ico in Resources */,
 				04BE57231BDCC3D30007EA61 /* Next_Icon.png in Resources */,
+				04FBD0B81BE870C200535E68 /* powerswitch1.png in Resources */,
 				04BE570D1BDC89030007EA61 /* Headon.png in Resources */,
 				041D017B1BD4DDB000847FD3 /* Settings.bundle in Resources */,
 				04BE570E1BDC89030007EA61 /* NoTurn.png in Resources */,
@@ -382,12 +388,15 @@
 				04BE570F1BDC89030007EA61 /* StartAtEndOfStreet.png in Resources */,
 				04BE570A1BDC89030007EA61 /* EnterRoundAbout.png in Resources */,
 				04BE56D61BDA226A0007EA61 /* HistoryTableViewCell.xib in Resources */,
+				04E54DEA1BE0EC7E0029A3D6 /* TurnRight.png in Resources */,
+				04E54DE71BE0EC7E0029A3D6 /* AccessRestrictionFlag.png in Resources */,
+				04E54DE91BE0EC7E0029A3D6 /* TurnLeft.png in Resources */,
 				04BE570C1BDC89030007EA61 /* StayOnRoundAbout.png in Resources */,
 				04BE57211BDCBD470007EA61 /* GoStraight.png in Resources */,
+				04E54DE81BE0EC7E0029A3D6 /* InverseAccessRestrictionFlag.png in Resources */,
 				041D01731BD4DAF300847FD3 /* LaunchScreen.storyboard in Resources */,
 				04BE57111BDC89030007EA61 /* TurnSharpRight.png in Resources */,
-				04BE57191BDC89200007EA61 /* TurnLeft.png in Resources */,
-				04BE57081BDC89030007EA61 /* InverseAccessRestrictionFlag.png in Resources */,
+				04FBD0B61BE8700400535E68 /* PowerSwitch_User.png in Resources */,
 				041D01701BD4DAF300847FD3 /* Assets.xcassets in Resources */,
 				04BE57121BDC89030007EA61 /* EnterAgainstAllowedDirection.png in Resources */,
 				04BE56EA1BDB581D0007EA61 /* MB__back.png in Resources */,
@@ -582,7 +591,10 @@
 			baseConfigurationReference = 5D0994BC88B36CFC5BF300BD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MapBoxSystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Chen.MapBoxSystem";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -594,7 +606,10 @@
 			baseConfigurationReference = 80D0FC9DBC2BC4A3E480F22C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MapBoxSystem/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Michael-Chen.MapBoxSystem";
 				PRODUCT_NAME = "$(TARGET_NAME)";

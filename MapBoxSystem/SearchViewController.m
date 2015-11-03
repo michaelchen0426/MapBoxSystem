@@ -34,7 +34,7 @@
 @synthesize startDictionary;
 @synthesize endDictionary;
 
-static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
+static NSString *kMDDirectionsURL=@"http://10.89.116.116:3000/api/v1/Mapbox?";
 
 
 - (void)viewDidLoad {
@@ -127,6 +127,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
                 NSLog(@"Geocode Ambiguous!");
                 loadFinished=true;
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    loadFinished=true;
                     [self performSegueWithIdentifier:@"AmbiguousSegue" sender:self];
                 });
             }else{
@@ -176,7 +177,9 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:okAction];
             dispatch_async(dispatch_get_main_queue(), ^{
+                loadFinished=true;
                 [self presentViewController:alertController animated:YES completion:nil];
+                
             });
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -256,6 +259,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
                     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
                     [alertController addAction:okAction];
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        [SVProgressHUD dismiss];
                         [self presentViewController:alertController animated:YES completion:nil];
                     });
                 }
@@ -304,6 +308,8 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
         directions.position_start=position_start;
         directions.position_end=position_end;
         directions.wholeJson=wholeJson;
+        directions.startLocation=[self.StartField text] ;
+        directions.endLocation=[self.EndField text];
         //[theSegue setValue:self.EndField.text forKey:@"endInfo"];
         //[theSegue setValue:self.EndField.text forKey:@"endInfo"];
         

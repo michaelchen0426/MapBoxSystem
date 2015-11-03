@@ -37,6 +37,8 @@
 @synthesize position_start;
 @synthesize position_end;
 @synthesize wholeJson;
+@synthesize startLocation;
+@synthesize endLocation;
 static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
 
 - (void)viewDidLoad {
@@ -46,6 +48,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
     waypointStrings_ = [[NSMutableArray alloc]init];
     //NSLog(@"%@,%@",startInfo,endInfo);
     NSLog(@"%f,%f,%f,%f",position_start.latitude,position_start.longitude,position_end.latitude,position_end.longitude);
+    NSLog(@"%@,%@",startLocation,endLocation);
     start_lat=position_start.latitude;start_lon=position_start.longitude;
     end_lat=position_end.latitude; end_lon=position_end.longitude;
     
@@ -148,9 +151,11 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
     self.containerViewController.routes=routes;
     self.containerViewController.summary_route=[json objectForKey:@"route_summary"];
     self.containerViewController.bad_traffic_num=bad_traffic_num;
+    self.containerViewController.startLocation=startLocation;
+    self.containerViewController.endLocation=endLocation;
     [self.containerViewController setInfo];
     NSUInteger coordinatesCount = route_points.count;
-    
+    NSLog(@"coordinatesCount is: %lu",(unsigned long)coordinatesCount);
     // Create a coordinates array, sized to fit all of the coordinates in the line.
     // This array will hold the properly formatted coordinates for our MGLPolyline.
     CLLocationCoordinate2D coordinates[coordinatesCount];
@@ -179,6 +184,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
                    });
     
     //[weakSelf.MapBoxView addAnnotation:polyline];
+    NSLog(@"DirectionMainVC addDirections  over");
 }
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {

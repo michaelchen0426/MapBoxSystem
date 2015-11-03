@@ -18,6 +18,8 @@
 @property (strong,nonatomic) NSMutableArray *routes;
 @property (strong,nonatomic) NSDictionary *summary_route;
 @property (assign,nonatomic) NSInteger bad_traffic_num;
+@property (strong,nonatomic) NSString *startLocation;
+@property (strong,nonatomic) NSString *endLocation;
 - (void)printRoute;
 -(void)setInfo;
 - (IBAction)intoDetails:(id)sender;

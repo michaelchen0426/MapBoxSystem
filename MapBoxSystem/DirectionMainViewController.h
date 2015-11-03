@@ -18,4 +18,6 @@
 @property (nonatomic,assign)CLLocationCoordinate2D position_start;
 @property (nonatomic,assign)CLLocationCoordinate2D position_end;
 @property (strong,nonatomic)NSDictionary *wholeJson;
+@property (strong,nonatomic) NSString *startLocation;
+@property (strong,nonatomic) NSString *endLocation;
 @end

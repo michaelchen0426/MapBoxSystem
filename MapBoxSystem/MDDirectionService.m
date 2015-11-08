@@ -21,7 +21,7 @@ static NSString *kMDDirectionsURL=@"http://localhost:3000/api/v1/Mapbox?";
 -(void)setDirectionsQuery:(NSDictionary*) query withSelector:(SEL)selector withDelegate:(id)delegate{
     NSArray *waypoints=[query objectForKey:@"waypoints"];
     NSString *origin=[waypoints objectAtIndex:0];
-    int waypointCount=[waypoints count];
+    int waypointCount=(int)[waypoints count];
     int destinationPos=waypointCount-1;
     NSString *destination=[waypoints objectAtIndex:destinationPos];
     //NSString *sensor=[query objectForKey:@"sensor"];

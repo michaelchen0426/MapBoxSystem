@@ -19,6 +19,7 @@
     //NSMutableArray *waypointStrings_;
     //NSMutableArray *route_points;
     MGLUserLocation *userlocation;
+    double userLattitude,userLongitude;
 }
 @synthesize locationManager;
 @synthesize myLocation;
@@ -30,9 +31,11 @@
     locationManager = [[CLLocationManager alloc] init];
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    locationManager.delegate=self;
     userlocation =[[MGLUserLocation alloc] init];
     [locationManager startUpdatingLocation];
     self.MapBoxView.showsUserLocation=YES;
+    
     //self.MapBoxView = [[MGLMapView alloc] initWithFrame:self.view.bounds];
     self.MapBoxView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
@@ -41,6 +44,7 @@
                             zoomLevel:11
                              animated:NO];
     NSLog(@"User Location: %f,%f",userlocation.coordinate.latitude,userlocation.coordinate.longitude);
+   
     /*
     waypointStrings_ = [[NSMutableArray alloc]init];
     NSString *positionString_start = [[NSString alloc] initWithFormat:@"lon_s=22.282999&lat_s=114.137085"];
@@ -61,15 +65,33 @@
                withDelegate:self];
      */
 }
-- (void)enterNext:(id)sender{
+
+- (IBAction)enterNext:(id)sender{
     [self performSegueWithIdentifier:@"EnterNext" sender:sender];
 }
-- (void)myLocation:(id)sender{
+- (IBAction)myLocation:(id)sender{
     
-    
-    [self.MapBoxView setCenterCoordinate:CLLocationCoordinate2DMake(userlocation.coordinate.latitude, userlocation.coordinate.latitude)
+    //NSLog(@"myLocation Coordinate is %f,%f",userLattitude,userLongitude);
+    [self.MapBoxView setCenterCoordinate:CLLocationCoordinate2DMake(userLattitude, userLongitude)
                                zoomLevel:15
                                 animated:NO];
+}
+-(void)locationManager:(CLLocationManager *)manager
+   didUpdateToLocation:(CLLocation *)newLocation
+          fromLocation:(CLLocation *)oldLocation
+{
+    NSString *currentLatitude = [[NSString alloc]
+                                 initWithFormat:@"%+.6f",
+                                 newLocation.coordinate.latitude];
+
+    
+    NSString *currentLongitude = [[NSString alloc]
+                                  initWithFormat:@"%+.6f",
+                                  newLocation.coordinate.longitude];
+    
+    userLattitude=currentLatitude.doubleValue;
+    userLongitude=currentLongitude.doubleValue;
+    //NSLog(@"Coordinate is %f,%f",currentLatitude.doubleValue,currentLongitude.doubleValue);
 }
 /*
 - (void)addDirections:(NSDictionary *)json {

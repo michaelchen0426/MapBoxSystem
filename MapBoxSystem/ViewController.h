@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Mapbox.h"
 #import <CoreLocation/CoreLocation.h>
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MGLMapView *MapBoxView;
 @property (nonatomic, strong, readonly) CLLocation *myLocation;
 @property(nonatomic,retain) CLLocationManager *locationManager;

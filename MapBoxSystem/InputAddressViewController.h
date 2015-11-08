@@ -17,4 +17,5 @@
 @property (strong,nonatomic) NSString *start_text;
 @property (strong,nonatomic) NSString *end_text;
 @property (assign,nonatomic) Boolean is_Start;
+-(IBAction)editEnd:(id)sender;
 @end

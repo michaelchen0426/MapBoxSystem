@@ -216,7 +216,7 @@ static NSString *kMDDirectionsURL=@"http://10.89.116.116:3000/api/v1/Mapbox?";
 -(void)setDirectionsQuery:(NSDictionary*) query withSelector:(SEL)selector withDelegate:(id)delegate{
     NSArray *waypoints=[query objectForKey:@"waypoints"];
     NSString *origin=[waypoints objectAtIndex:0];
-    int waypointCount=[waypoints count];
+    int waypointCount=(int)[waypoints count];
     int destinationPos=waypointCount-1;
     NSString *destination=[waypoints objectAtIndex:destinationPos];
     //NSString *sensor=[query objectForKey:@"sensor"];
@@ -268,6 +268,7 @@ static NSString *kMDDirectionsURL=@"http://10.89.116.116:3000/api/v1/Mapbox?";
     
     
 }
+/*
 -(void) fetchedData:(NSData *)data withSelector:(SEL)selector withDelegate:(id)delegate{
     NSError* error;
     NSDictionary *json = [NSJSONSerialization
@@ -278,6 +279,7 @@ static NSString *kMDDirectionsURL=@"http://10.89.116.116:3000/api/v1/Mapbox?";
     [delegate performSelector:selector withObject:json];
     
 }
+ */
 - (void)setPassData:(NSDictionary *)json {
     wholeJson=json;
 }

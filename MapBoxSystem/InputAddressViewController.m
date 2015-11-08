@@ -58,6 +58,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(IBAction)editEnd:(id)sender{
+    [self performSegueWithIdentifier:@"SearchSegue" sender:self];
+}
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
     //NSLog(@"InputAddressViewController searchAutocompleteEntriesWithSubstring");
     // Put anything that starts with this substring into the autocompleteUrls array
